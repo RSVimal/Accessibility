@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Form</title>
+</head>
+<body>
+    <header role="banner">
+     <a href="#main" id="bypass">skip to main content</a>
+    </header>
+    <main role="main" id="main">
+    <h1 aria-hidden="true" id="formdescription">Sign in with registered credentials and password</h1>
+    <!-- <div> should not be used for label -->
+    <form role="form" aria-describedby="formdescription">
+    <label for="uname" aria-hidden="true">User Name<span aria-hidden="true">*</span></div><br>
+    <input type="text" id="uname" aria-required="true" placeholder="enter your name" autocomplete="given-name"><br>
+    <label for="email" aria-hidden="true">Email<span aria-hidden="true">*</span></div><br>
+        <input type="email" id="email" aria-required="true" placeholder="enter your email" autocomplete="email" autocapitalize="off">
+    <div aria-hidden="true" id="pwd">Password*</div><input type="password" aria-labelledby="pwd" required placeholder="Password" autocomplete="current-password"><br>
+    <!--<button> should not be used for submit-->
+    <input type="submit" aria-label="click here" aria-hidden="true" value="Sign in">
+    </form> 
+    </main>
+    <style>
+        #bypass
+        {
+          position: absolute;
+          top: -3em;
+        }
+       #bypass:focus 
+        {
+       top: 0;
+        }
+    </style>
+</body>
+</html>
